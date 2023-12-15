@@ -7,6 +7,10 @@ from data.initial_values.initial_values import *
 from SALib.sample.saltelli import sample as ss
 from SALib.analyze.sobol import analyze as sa
 
+'''
+Table 3: Factor Fixing analysis
+'''
+
 # Define the problem setup
 
 # Choose sigma_hat

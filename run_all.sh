@@ -17,3 +17,7 @@ echo "Figure 6 and 7 done."
 echo "Creating data for Figure 8..."
 python Figure8.py
 echo "Figure 8 done."
+
+echo "Creating data for Table 3..."
+python Table3.py
+echo "Table 3 done."
