@@ -2,7 +2,7 @@ from scipy.integrate import solve_ivp
 import numpy as np
 import time
 from edNEGmodel.edNEGmodel import *
-from data.initial_values.initial_values import *
+from functions.initial_values import *
 import h5py
 import os
 

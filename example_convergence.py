@@ -1,6 +1,6 @@
 import numpy as np
 from edNEGmodel.edNEGmodel import *
-from data.initial_values.initial_values import *
+from functions.initial_values import *
 from functions.solve_edNEGmodel import *
 import os
       

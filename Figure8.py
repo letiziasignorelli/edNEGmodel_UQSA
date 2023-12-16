@@ -2,7 +2,7 @@ import numpy as np
 import uncertainpy as un
 from scipy.integrate import solve_ivp
 from edNEGmodel.edNEGmodel_params import *
-from data.initial_values.initial_values import *
+from functions.initial_values import *
 
 def model_setup(t,k, g_Na, g_DR, g_Ca, g_AHP, g_C):
         Na_sn, Na_se, Na_sg, Na_dn, Na_de, Na_dg, K_sn, K_se, K_sg, K_dn, K_de, K_dg, Cl_sn, Cl_se, Cl_sg, Cl_dn, Cl_de, Cl_dg, Ca_sn, Ca_se, Ca_dn, Ca_de, n, h, s, c, q, z, V_sn, V_se, V_sg, V_dn, V_de, V_dg = k

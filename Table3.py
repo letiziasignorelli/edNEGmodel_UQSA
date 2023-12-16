@@ -3,7 +3,7 @@ import numpy as np
 import os
 import h5py
 from edNEGmodel.edNEGmodel_params import * 
-from data.initial_values.initial_values import *
+from functions.initial_values import *
 from SALib.sample.saltelli import sample as ss
 from SALib.analyze.sobol import analyze as sa
 
