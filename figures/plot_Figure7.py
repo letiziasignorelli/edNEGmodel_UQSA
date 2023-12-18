@@ -2,6 +2,7 @@ import uncertainpy as un
 import numpy as np
 import matplotlib.pyplot as plt
 from prettyplot import * 
+import os
 
 ### FIGURE7 ###
 data = un.Data()
@@ -68,6 +69,11 @@ axesB.set_title(r'$T_\mathrm{bFAP}$', size=20, pad=17)
 
 plt.tight_layout()
 plt.subplots_adjust(top=0.9, wspace=0.25, hspace=0.4)
+
+# Save path
+# checking if the directory exist and create it if it doesn't
+if not os.path.exists('full_figures'):
+    os.makedirs('full_figures')
 plt.savefig('full_figures/Figure7.png', dpi=600)
 # plt.show()
 

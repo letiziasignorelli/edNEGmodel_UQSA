@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from prettyplot import *
 import scipy.integrate as integrate
+import os
 
 ### FIGURE8 ###
 data = un.Data()
@@ -98,5 +99,10 @@ axesD.set_xlabel(r'$\mathrm{time}$ $\mathrm{[s]}$', size = 13)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.25, hspace=0.4)
+
+# Save path
+# checking if the directory exist and create it if it doesn't
+if not os.path.exists('full_figures'):
+    os.makedirs('full_figures')
 plt.savefig('full_figures/Figure7.png', dpi=600)
 # plt.show()

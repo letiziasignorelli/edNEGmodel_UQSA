@@ -213,5 +213,10 @@ axesD.set_ylabel(r"$T_\mathrm{bFAP}$ $\mathrm{[ms]}$", size=13)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.4, hspace=0.55)
+
+# Save path
+# checking if the directory exist and create it if it doesn't
+if not os.path.exists('full_figures'):
+    os.makedirs('full_figures')
 plt.savefig('full_figures/Figure6.png', dpi=600)
 # plt.show()
