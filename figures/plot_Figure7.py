@@ -5,7 +5,7 @@ from prettyplot import *
 
 ### FIGURE7 ###
 data = un.Data()
-data.load(filename='data/simulation_outputs/UQSA_pathological/phi_msn_5/phi_msn.h5')
+data.load(filename='../data/simulation_outputs/UQSA_pathological/phi_msn_5/phi_msn.h5')
 sobol_1_sdp = data['start_depolarization_block']['sobol_first']
 sobol_tot_sdp = data['start_depolarization_block']['sobol_total']
 sobol_1_tbfs = data['time_before_first_spike']['sobol_first']
@@ -68,7 +68,7 @@ axesB.set_title(r'$T_\mathrm{bFAP}$', size=20, pad=17)
 
 plt.tight_layout()
 plt.subplots_adjust(top=0.9, wspace=0.25, hspace=0.4)
-plt.savefig('figures/full_figures/Figure7.png', dpi=600)
+plt.savefig('full_figures/Figure7.png', dpi=600)
 # plt.show()
 
 

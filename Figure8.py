@@ -90,7 +90,7 @@ if __name__ == '__main__':
                                     parameters=parameters)
     
     # We set the seed to easier be able to reproduce the result
-    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_pathological/K_se_1")
+    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_pathological/K_se_1", plot=None)
 
     '''
     sigma = 5%
@@ -115,7 +115,7 @@ if __name__ == '__main__':
                                     parameters=parameters)
     
     # We set the seed to easier be able to reproduce the result
-    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_pathological/K_se_5")
+    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_pathological/K_se_5", plot=None)
 
     '''
     sigma = 10%
@@ -140,4 +140,4 @@ if __name__ == '__main__':
                                     parameters=parameters)
     
     # We set the seed to easier be able to reproduce the result
-    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_pathological/K_se_10")
+    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_pathological/K_se_10", plot=None)

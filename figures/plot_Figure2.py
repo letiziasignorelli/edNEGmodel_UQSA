@@ -87,7 +87,7 @@ axesB.set_title('Pathological', size=20, pad=12)
 
 plt.tight_layout()
 plt.subplots_adjust(top=0.9, wspace=0.25, hspace=0.45)
-plt.savefig('figures/full_figures/Figure2.png', dpi=600)
+plt.savefig('full_figures/Figure2.png', dpi=600)
 # plt.show()
 
 

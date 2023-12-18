@@ -6,7 +6,7 @@ import scipy.integrate as integrate
 
 ### FIGURE8 ###
 data = un.Data()
-data.load(filename='data/simulation_outputs/UQSA_pathological/K_se_5/K_se.h5')
+data.load(filename='../data/simulation_outputs/UQSA_pathological/K_se_5/K_se.h5')
 K_se_mean = data['K_se']['mean']
 K_se_p5 = data['K_se']['percentile_5']
 K_se_p95 = data['K_se']['percentile_95']
@@ -98,5 +98,5 @@ axesD.set_xlabel(r'$\mathrm{time}$ $\mathrm{[s]}$', size = 13)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.25, hspace=0.4)
-plt.savefig('figures/full_figures/Figure7.png', dpi=600)
+plt.savefig('full_figures/Figure7.png', dpi=600)
 # plt.show()

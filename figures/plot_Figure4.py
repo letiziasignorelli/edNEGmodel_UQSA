@@ -5,7 +5,7 @@ from prettyplot import *
 
 ### FIGURE4 ###
 data = un.Data()
-data.load(filename='data/simulation_outputs/UQSA_physiological/phi_msn_5/phi_msn.h5')
+data.load(filename='../data/simulation_outputs/UQSA_physiological/phi_msn_5/phi_msn.h5')
 sobol_1_nap = data['nr_spikes']['sobol_first']
 sobol_tot_nap = data['nr_spikes']['sobol_total']
 sobol_1_tlap = data['spike_rate_steady']['sobol_first']
@@ -85,7 +85,7 @@ axesC.set_title(r'$T_\mathrm{bFAP}$', size=20, pad=17)
 
 plt.tight_layout()
 plt.subplots_adjust(top=0.9, wspace=0.25, hspace=0.4)
-plt.savefig('figures/full_figures/Figure4.png', dpi=600)
+plt.savefig('full_figures/Figure4.png', dpi=600)
 # plt.show()
 
 

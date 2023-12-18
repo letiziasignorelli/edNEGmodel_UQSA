@@ -7,7 +7,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 ### TABLE8 ###
-savepath = 'data/simulation_outputs/factor_fixing'
+savepath = '../data/simulation_outputs/factor_fixing'
 file_name = "factor_fixing.h5"
 path = os.path.join(savepath, file_name)
 hf = h5py.File(path, 'r')
@@ -19,5 +19,6 @@ total_order_indices = hf['ST'][()]
 
 output_list = [r'$\phi_\mathrm{msn}$', r'$\phi_\mathrm{mdn}$', r'$\phi_\mathrm{msg}$', r'$\phi_\mathrm{mdg}$', r'$\mathrm{[K^+]_{se}}$', r'$\mathrm{[K^+]_{de}}$']
 
-print(output_list)
-print(total_order_indices)
+with open('full_figures/Table3.txt', 'w') as file:
+    print(output_list, file=file)
+    print(total_order_indices, file=file)

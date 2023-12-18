@@ -6,7 +6,7 @@ import scipy.integrate as integrate
 
 ### FIGURE5 ###
 data = un.Data()
-data.load(filename='data/simulation_outputs/UQSA_physiological/K_se_5/K_se.h5')
+data.load(filename='../data/simulation_outputs/UQSA_physiological/K_se_5/K_se.h5')
 K_se_mean = data['K_se']['mean']
 K_se_p5 = data['K_se']['percentile_5']
 K_se_p95 = data['K_se']['percentile_95']
@@ -69,7 +69,6 @@ for i in range(len(params)):
                             nr_colors=5,
                             palette="tab10",
                             ax=axesD)
-    print(general_sobol[-1])
     
 # Set legend
 set_legend(labels=params, bbox_to_anchor=(0.75,1.27), fontsize=13, ncol=6, frameon=False, columnspacing=3.2)
@@ -98,7 +97,7 @@ axesD.set_xlabel(r'$\mathrm{time}$ $\mathrm{[s]}$', size = 13)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.25, hspace=0.4)
-plt.savefig('figures/full_figures/Figure5.png', dpi=600)
+plt.savefig('full_figures/Figure5.png', dpi=600)
 # plt.show()
 
 

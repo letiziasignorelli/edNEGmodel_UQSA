@@ -135,7 +135,7 @@ hf = h5py.File(path, 'w')
 
 # Choose simulation setting
 solver = 'Radau'
-t_step = 1e1
+t_step = 1e3
 
 # Choose number of samples
 num_samples = 2**9

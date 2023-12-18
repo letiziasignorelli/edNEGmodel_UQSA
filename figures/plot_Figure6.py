@@ -42,7 +42,7 @@ def set_axis_style(ax, labels):
 
 ### FIGURE6 ###
 # Import nominal data
-sim_folder = 'data/simulation_outputs/UQSA_pathological'
+sim_folder = '../data/simulation_outputs/UQSA_pathological'
 path = os.path.join(sim_folder, 'nominal.h5')
 hf = h5py.File(path, 'r') 
 t_ref = hf['time'][()]
@@ -63,11 +63,11 @@ time_before_first_spike_nominal = np.full(254,compute_first_AP(t_ref,variable_re
 
 # Import UQ data
 data1 = un.Data()
-data1.load(filename='data/simulation_outputs/UQSA_pathological/phi_msn_1/phi_msn.h5')
+data1.load(filename='../data/simulation_outputs/UQSA_pathological/phi_msn_1/phi_msn.h5')
 data5 = un.Data()
-data5.load(filename='data/simulation_outputs/UQSA_pathological/phi_msn_5/phi_msn.h5')
+data5.load(filename='../data/simulation_outputs/UQSA_pathological/phi_msn_5/phi_msn.h5')
 data10 = un.Data()
-data10.load(filename='data/simulation_outputs/UQSA_pathological/phi_msn_10/phi_msn.h5')
+data10.load(filename='../data/simulation_outputs/UQSA_pathological/phi_msn_10/phi_msn.h5')
 
 start_depolarization_block1 = data1['start_depolarization_block']['evaluations']*1e-3
 start_depolarization_block5 = data5['start_depolarization_block']['evaluations']*1e-3
@@ -213,5 +213,5 @@ axesD.set_ylabel(r"$T_\mathrm{bFAP}$ $\mathrm{[ms]}$", size=13)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.4, hspace=0.55)
-plt.savefig('figures/full_figures/Figure6.png', dpi=600)
+plt.savefig('full_figures/Figure6.png', dpi=600)
 # plt.show()

@@ -50,7 +50,7 @@ def set_axis_style(ax, labels):
 ### FIGURE3 ###
     
 # Import nominal data
-sim_folder = 'data/simulation_outputs/UQSA_physiological'
+sim_folder = '../data/simulation_outputs/UQSA_physiological'
 path = os.path.join(sim_folder, 'nominal.h5')
 hf = h5py.File(path, 'r') 
 t_ref = hf['time'][()]*1e-3
@@ -68,11 +68,11 @@ time_before_first_spike_nominal = np.full(254, (t_val[0] - 0.2)*1e3)
 
 # Import UQ data
 data1 = un.Data()
-data1.load(filename='data/simulation_outputs/UQSA_physiological/phi_msn_1/phi_msn.h5')
+data1.load(filename='../data/simulation_outputs/UQSA_physiological/phi_msn_1/phi_msn.h5')
 data5 = un.Data()
-data5.load(filename='data/simulation_outputs/UQSA_physiological/phi_msn_5/phi_msn.h5')
+data5.load(filename='../data/simulation_outputs/UQSA_physiological/phi_msn_5/phi_msn.h5')
 data10 = un.Data()
-data10.load(filename='data/simulation_outputs/UQSA_physiological/phi_msn_10/phi_msn.h5')
+data10.load(filename='../data/simulation_outputs/UQSA_physiological/phi_msn_10/phi_msn.h5')
 
 nr_spikes1 = data1['nr_spikes']['evaluations']
 nr_spikes5 = data5['nr_spikes']['evaluations']
@@ -145,13 +145,6 @@ axesC.set_yticks([])
 axesA.text(64.5,37, 'Baseline', fontsize=9)
 axesB.text(8.8, 75, 'Baseline', fontsize=9)
 axesC.text(8.02, 25, 'Baseline', fontsize=9)
-
-print(np.min(nr_spikes5))
-print(np.max(nr_spikes5))
-print(np.min(spike_rate_steady5))
-print(np.max(spike_rate_steady5))
-print(np.min(time_before_first_spike5))
-print(np.max(time_before_first_spike5))
 
 # Violin plots
 # Panel D
@@ -272,5 +265,5 @@ axesF.set_ylabel(r'$T_\mathrm{bFAP}$ $\mathrm{[ms]}$', size=13)
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.4, hspace=0.55)
-plt.savefig('figures/full_figures/Figure3.png', dpi=600)
+plt.savefig('full_figures/Figure3.png', dpi=600)
 # plt.show()
