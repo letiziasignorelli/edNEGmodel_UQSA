@@ -29,6 +29,8 @@ vars = ['phi_msn', 'K_se', 'V_se']
 sim_folder = '../data/simulation_outputs/'
 solvers = ['UQSA_physiological/nominal','UQSA_pathological/nominal']
 
+panel = ['A', 'B', 'C', 'D', 'E', 'F']
+
 set_style("seaborn-paper")
 fig = plt.figure()
 axesA = plt.subplot(321)
@@ -69,6 +71,10 @@ for i in range(0, 2*len(vars)):
 
         axes[ny][nx].set_xlim([min(t_ref), max(t_ref)])
 
+        # ABC
+        axes[ny][nx].text(-0.05, 1.2, panel[i], transform=axes[ny][nx].transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+        axes[ny][nx].ticklabel_format(useMathText=True)
+
 # Axes limits
 axesA.set_xlim([0,6])
 axesD.set_xlim([0,6])
@@ -92,7 +98,7 @@ plt.subplots_adjust(top=0.9, wspace=0.25, hspace=0.45)
 # checking if the directory exist and create it if it doesn't
 if not os.path.exists('full_figures'):
     os.makedirs('full_figures')
-plt.savefig('full_figures/Figure2.png', dpi=600)
+plt.savefig('full_figures/Figure2.pdf', dpi=600)
 # plt.show()
 
 

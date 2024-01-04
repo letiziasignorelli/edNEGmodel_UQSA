@@ -91,10 +91,10 @@ axesC.set_xlabel(r'$\mathrm{time}$ $\mathrm{[s]}$', size = 13)
 axesD.set_xlabel(r'$\mathrm{time}$ $\mathrm{[s]}$', size = 13)
 
 # ABC
-# axesA.text(-0.05, 1.1, 'A', transform=axesA.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesB.text(-0.05, 1.1, 'B', transform=axesB.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesC.text(-0.05, 1.1, 'C', transform=axesC.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesD.text(-0.05, 1.1, 'D', transform=axesD.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesA.text(-0.05, 1.1, 'A', transform=axesA.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesB.text(-0.05, 1.1, 'B', transform=axesB.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesC.text(-0.05, 1.1, 'C', transform=axesC.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesD.text(-0.05, 1.1, 'D', transform=axesD.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.25, hspace=0.4)
@@ -103,7 +103,7 @@ plt.subplots_adjust(wspace=0.25, hspace=0.4)
 # checking if the directory exist and create it if it doesn't
 if not os.path.exists('full_figures'):
     os.makedirs('full_figures')
-plt.savefig('full_figures/Figure5.png', dpi=600)
+plt.savefig('full_figures/Figure5.pdf', dpi=600)
 # plt.show()
 
 

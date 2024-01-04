@@ -203,13 +203,11 @@ axesC.set_ylabel(r"$T_\mathrm{sDP}$ $\mathrm{[s]}$", size=13)
 axesD.set_ylabel(r"$T_\mathrm{bFAP}$ $\mathrm{[ms]}$", size=13)
 
 # ABC
-# axesA.text(-0.05, 1.2, 'A', transform=axesA.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesB.text(-0.05, 1.2, 'B', transform=axesB.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesC.text(-0.05, 1.2, 'C', transform=axesC.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesD.text(-0.05, 1.2, 'D', transform=axesD.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesE.text(-0.05, 1.2, 'E', transform=axesE.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesF.text(-0.05, 1.2, 'F', transform=axesF.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
-# axesG.text(0, 1.2, 'G', transform=axesG.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesA.text(-0.05, 1.2, 'A', transform=axesA.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesB.text(-0.05, 1.2, 'B', transform=axesB.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesC.text(-0.05, 1.2, 'C', transform=axesC.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesD.text(-0.05, 1.2, 'D', transform=axesD.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
+axesE.text(-0.05, 1.2, 'E', transform=axesE.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.4, hspace=0.55)
@@ -218,5 +216,5 @@ plt.subplots_adjust(wspace=0.4, hspace=0.55)
 # checking if the directory exist and create it if it doesn't
 if not os.path.exists('full_figures'):
     os.makedirs('full_figures')
-plt.savefig('full_figures/Figure6.png', dpi=600)
+plt.savefig('full_figures/Figure6.pdf', dpi=600)
 # plt.show()
