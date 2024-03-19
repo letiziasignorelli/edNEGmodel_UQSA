@@ -3,6 +3,7 @@ import uncertainpy as un
 from scipy.integrate import solve_ivp
 from edNEGmodel.edNEGmodel_params import *
 from functions.initial_values import *
+import time
 
 def model_setup(t,k, g_Na, g_DR, g_Ca, g_AHP, g_C):
         Na_sn, Na_se, Na_sg, Na_dn, Na_de, Na_dg, K_sn, K_se, K_sg, K_dn, K_de, K_dg, Cl_sn, Cl_se, Cl_sg, Cl_dn, Cl_de, Cl_dg, Ca_sn, Ca_se, Ca_dn, Ca_de, n, h, s, c, q, z, V_sn, V_se, V_sg, V_dn, V_de, V_dg = k
@@ -72,6 +73,7 @@ if __name__ == '__main__':
     '''
     sigma = 1%
     '''
+    start_time = time.time()
     # Define a parameter dictionary
     parameters = {  "g_Na" : 30.,  
                     "g_DR" : 15., 
@@ -93,11 +95,13 @@ if __name__ == '__main__':
                                     features=feature_list)
     
     # We set the seed to easier be able to reproduce the result
-    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_physiological/phi_msn_1")
+    data = UQ.quantify(seed=10, data_folder = "data/simulation_outputs/UQSA_physiological/phi_msn_1", plot=None)
+    elapsed_time1 = round(time.time() - start_time, 5)
 
     '''
-    sigma = 1%
+    sigma = 5%
     '''
+    start_time = time.time()
     # Define a parameter dictionary
     parameters = {  "g_Na" : 30.,  
                     "g_DR" : 15., 
@@ -119,12 +123,13 @@ if __name__ == '__main__':
                                     features=feature_list)
     
     # We set the seed to easier be able to reproduce the result
-    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_physiological/phi_msn_5", plot=None)
-
+    data = UQ.quantify(seed=10, data_folder = "data/simulation_outputs/UQSA_physiological/phi_msn_5", plot=None)
+    elapsed_time5 = round(time.time() - start_time, 5)
 
     '''
     sigma = 10%
     '''
+    start_time = time.time()
     # Define a parameter dictionary
     parameters = {  "g_Na" : 30.,  
                     "g_DR" : 15., 
@@ -146,4 +151,13 @@ if __name__ == '__main__':
                                     features=feature_list)
     
     # We set the seed to easier be able to reproduce the result
-    data = UQ.quantify(seed=10, rosenblatt=True, data_folder = "data/simulation_outputs/UQSA_physiological/phi_msn_10", plot=None)
+    data = UQ.quantify(seed=10, data_folder = "data/simulation_outputs/UQSA_physiological/phi_msn_10", plot=None)
+    elapsed_time10 = round(time.time() - start_time, 5)
+
+    # Open a text file in write mode
+    with open("Figure3_4.txt", "w") as file:
+                
+        file.write("phi_msn 1: " + str(elapsed_time1) + "\n")
+        file.write("phi_msn 5: " + str(elapsed_time5) + "\n")
+        file.write("phi_msn 10: " + str(elapsed_time10) + "\n")
+ 

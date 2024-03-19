@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from prettyplot import * 
 import os
 import h5py
+from scipy.stats import zscore
 
 def compute_first_AP(t,variable,interval):
     index_left = np.where(t >= interval[0])[0][0]
@@ -84,13 +85,13 @@ time_before_first_spike = [ time_before_first_spike_nominal, time_before_first_s
 # Standardized data
 nominal = np.full(254,0)
 
-start_depolarization_block1_n = (data1['start_depolarization_block']['evaluations'] - data1['start_depolarization_block']['mean'])/np.sqrt(data1['start_depolarization_block']['variance'])
-start_depolarization_block5_n = (data5['start_depolarization_block']['evaluations'] - data5['start_depolarization_block']['mean'])/np.sqrt(data5['start_depolarization_block']['variance'])
-start_depolarization_block10_n = (data10['start_depolarization_block']['evaluations'] - data10['start_depolarization_block']['mean'])/np.sqrt(data10['start_depolarization_block']['variance'])
+start_depolarization_block1_n = zscore(start_depolarization_block1)
+start_depolarization_block5_n = zscore(start_depolarization_block5)
+start_depolarization_block10_n = zscore(start_depolarization_block10)
 
-time_before_first_spike1_n = (data1['time_before_first_spike']['evaluations'] - data1['time_before_first_spike']['mean'])/np.sqrt(data1['time_before_first_spike']['variance'])
-time_before_first_spike5_n = (data5['time_before_first_spike']['evaluations'] - data5['time_before_first_spike']['mean'])/np.sqrt(data5['time_before_first_spike']['variance'])
-time_before_first_spike10_n = (data10['time_before_first_spike']['evaluations'] - data10['time_before_first_spike']['mean'])/np.sqrt(data10['time_before_first_spike']['variance'])
+time_before_first_spike1_n = zscore(time_before_first_spike1)
+time_before_first_spike5_n = zscore(time_before_first_spike5)
+time_before_first_spike10_n = zscore(time_before_first_spike10)
 
 start_depolarization_block_n = [nominal, start_depolarization_block1_n, start_depolarization_block5_n, start_depolarization_block10_n]
 time_before_first_spike_n = [ nominal, time_before_first_spike1_n, time_before_first_spike5_n, time_before_first_spike10_n]
@@ -106,7 +107,7 @@ axesD = fig.add_subplot(ax[1,1])
 axesE = fig.add_subplot(ax[2, 0:2])
 
 fig.set_figwidth(9)
-fig.set_figheight(8)
+fig.set_figheight(9)
 
 colors = ["#9467bd", "#17becf"]
 
@@ -209,8 +210,13 @@ axesC.text(-0.05, 1.2, 'C', transform=axesC.transAxes, fontsize=17, fontweight='
 axesD.text(-0.05, 1.2, 'D', transform=axesD.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 axesE.text(-0.05, 1.2, 'E', transform=axesE.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 
+# Set subtitles
+axesB.set_title(r"Histograms of QoIs ($\sigma$ = 5%)", fontsize=15, x=-0.2, y=1.3)
+axesD.set_title(r"Violin plots of QoIs", fontsize=15, x=-0.2, y=1.3)
+axesE.set_title(r"Grouped violin plot of standardized QoIs", fontsize=15, x=0.5, y=1.3)
+
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.4, hspace=0.55)
+plt.subplots_adjust(wspace=0.4, hspace=1, top=0.89)
 
 # Save path
 # checking if the directory exist and create it if it doesn't

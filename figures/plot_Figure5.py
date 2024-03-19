@@ -96,6 +96,12 @@ axesB.text(-0.05, 1.1, 'B', transform=axesB.transAxes, fontsize=17, fontweight='
 axesC.text(-0.05, 1.1, 'C', transform=axesC.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 axesD.text(-0.05, 1.1, 'D', transform=axesD.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 
+# Set subtitles
+axesA.set_title(r"UQ of $\mathrm{[K^+]_{se}}$", fontsize=15, x=0.5, y=1)
+axesB.set_title(r"Total order Sobol’ indices", fontsize=15, x=0.5, y=1)
+axesC.set_title(r"Weighted Sobol’ indices", fontsize=15, x=0.5, y=1)
+axesD.set_title(r"Generalized Sobol’ indices", fontsize=15, x=0.5, y=1)
+
 plt.tight_layout()
 plt.subplots_adjust(wspace=0.25, hspace=0.4)
 

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from prettyplot import * 
 import os
 import h5py
+from scipy.stats import zscore
 
 def compute_local_maxima(t,variable,interval):
     index_left = np.where(t >= interval[0])[0][0]
@@ -93,17 +94,17 @@ time_before_first_spike = [ time_before_first_spike_nominal, time_before_first_s
 # Standardized data
 nominal = np.full(254,0)
 
-nr_spikes1_n = (data1['nr_spikes']['evaluations'] - data1['nr_spikes']['mean'])/np.sqrt(data1['nr_spikes']['variance'])
-nr_spikes5_n = (data5['nr_spikes']['evaluations'] - data5['nr_spikes']['mean'])/np.sqrt(data5['nr_spikes']['variance'])
-nr_spikes10_n = (data10['nr_spikes']['evaluations'] - data10['nr_spikes']['mean'])/np.sqrt(data10['nr_spikes']['variance'])
+nr_spikes1_n = zscore(nr_spikes1)
+nr_spikes5_n = zscore(nr_spikes5)
+nr_spikes10_n = zscore(nr_spikes10)
 
-spike_rate_steady1_n = (data1['spike_rate_steady']['evaluations'] - data1['spike_rate_steady']['mean'])/np.sqrt(data1['spike_rate_steady']['variance'])
-spike_rate_steady5_n = (data5['spike_rate_steady']['evaluations'] - data5['spike_rate_steady']['mean'])/np.sqrt(data5['spike_rate_steady']['variance'])
-spike_rate_steady10_n = (data10['spike_rate_steady']['evaluations'] - data10['spike_rate_steady']['mean'])/np.sqrt(data10['spike_rate_steady']['variance'])
+spike_rate_steady1_n = zscore(spike_rate_steady1)
+spike_rate_steady5_n = zscore(spike_rate_steady5)
+spike_rate_steady10_n = zscore(spike_rate_steady10)
 
-time_before_first_spike1_n = (data1['time_before_first_spike']['evaluations'] - data1['time_before_first_spike']['mean'])/np.sqrt(data1['time_before_first_spike']['variance'])
-time_before_first_spike5_n = (data5['time_before_first_spike']['evaluations'] - data5['time_before_first_spike']['mean'])/np.sqrt(data5['time_before_first_spike']['variance'])
-time_before_first_spike10_n = (data10['time_before_first_spike']['evaluations'] - data10['time_before_first_spike']['mean'])/np.sqrt(data10['time_before_first_spike']['variance'])
+time_before_first_spike1_n = zscore(time_before_first_spike1)
+time_before_first_spike5_n = zscore(time_before_first_spike5)
+time_before_first_spike10_n = zscore(time_before_first_spike10)
 
 nr_spikes_n = [nominal, nr_spikes1_n, nr_spikes5_n, nr_spikes10_n]
 spike_rate_steady_n = [nominal, spike_rate_steady1_n, spike_rate_steady5_n, spike_rate_steady10_n]
@@ -122,7 +123,7 @@ axesF = fig.add_subplot(ax[1,2])
 axesG = fig.add_subplot(ax[2, 0:3])
 
 fig.set_figwidth(9)
-fig.set_figheight(8)
+fig.set_figheight(9)
 
 colors = ["#e377c2", "#bcbd22", "#17becf"]
 
@@ -263,8 +264,13 @@ axesE.text(-0.05, 1.2, 'E', transform=axesE.transAxes, fontsize=17, fontweight='
 axesF.text(-0.05, 1.2, 'F', transform=axesF.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 axesG.text(0, 1.2, 'G', transform=axesG.transAxes, fontsize=17, fontweight='bold', va='top', ha='right')
 
+# Set subtitles
+axesB.set_title(r"Histograms of QoIs ($\sigma$ = 5%)", fontsize=15, x=0.5, y=1.3)
+axesE.set_title(r"Violin plots of QoIs", fontsize=15, x=0.5, y=1.3)
+axesG.set_title(r"Grouped violin plot of standardized QoIs", fontsize=15, x=0.5, y=1.3)
+
 plt.tight_layout()
-plt.subplots_adjust(wspace=0.4, hspace=0.55)
+plt.subplots_adjust(wspace=0.4, hspace=1, top=0.89)
 
 # Save path
 # checking if the directory exist and create it if it doesn't
