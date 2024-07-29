@@ -1,6 +1,6 @@
 # Uncertainty Quantification and Sensitivity Analysis of Neuron Models with Ion Concentration Dynamics
 
-This code was used to produce the results presented in Signorelli et al., (2024): ...
+This code was used to produce the results presented in Signorelli L, Manzoni A, Sætra MJ (2024), PLOS ONE 19(5), e0303822: [Uncertainty quantification and sensitivity analysis of neuron models with ion concentration dynamics](https://doi.org/10.1371/journal.pone.0303822). 
 
 # Installation
 
